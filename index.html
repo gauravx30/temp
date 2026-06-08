@@ -603,42 +603,7 @@
             text-align: center;
         }
 
-        /* ========== SIDE DOTS ========== */
-        .side-dots {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-        }
 
-        .side-dots.show {
-            display: flex;
-        }
-
-        .side-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(232, 69, 107, 0.25);
-            border: 1px solid rgba(232, 69, 107, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .side-dot.active {
-            background: var(--rose-light);
-            box-shadow: 0 0 10px rgba(232, 69, 107, 0.5);
-            transform: scale(1.3);
-        }
-
-        .side-dot:hover {
-            background: var(--rose);
-            transform: scale(1.2);
-        }
 
         /* ========== MUSIC PLAYER ========== */
         .music-player {
@@ -1806,13 +1771,16 @@
                 opacity: 0;
                 border-color: rgba(232, 69, 107, 0.6);
             }
+
             15% {
                 opacity: 0.8;
             }
+
             80% {
                 opacity: 0.2;
                 border-color: rgba(212, 168, 83, 0.3);
             }
+
             100% {
                 transform: scale(2.8);
                 opacity: 0;
@@ -1872,10 +1840,13 @@
         }
 
         @keyframes pulsePrompt {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.6;
                 transform: scale(0.98);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1.02);
@@ -1885,15 +1856,19 @@
         #slide-8.revealed .finale-line.line-1 {
             animation: lineReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
         }
+
         #slide-8.revealed .finale-line.line-2 {
             animation: lineReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.8s forwards;
         }
+
         #slide-8.revealed .finale-line.line-3 {
             animation: lineReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) 3s forwards;
         }
+
         #slide-8.revealed .finale-line.line-4 {
             animation: lineReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) 4.2s forwards;
         }
+
         #slide-8.revealed .finale-line.line-5 {
             background: none !important;
             -webkit-background-clip: initial !important;
@@ -1911,6 +1886,7 @@
                 opacity: 0;
                 transform: translateY(20px) scale(0.98);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1956,12 +1932,15 @@
                 opacity: 0;
                 transform: translateY(0) rotate(0deg) translateX(0);
             }
+
             10% {
                 opacity: 0.85;
             }
+
             90% {
                 opacity: 0.85;
             }
+
             100% {
                 opacity: 0;
                 transform: translateY(105vh) rotate(var(--rotate-deg, 360deg)) translateX(var(--sway-x, 50px));
@@ -2017,18 +1996,33 @@
         }
 
         @keyframes driftOrbA {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 30px) scale(1.2); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 30px) scale(1.2);
+            }
         }
 
         @keyframes driftOrbB {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-30px, -40px) scale(0.9); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(-30px, -40px) scale(0.9);
+            }
         }
 
         @keyframes driftOrbC {
-            0% { transform: translate(0, 0) scale(0.9); }
-            100% { transform: translate(30px, -20px) scale(1.1); }
+            0% {
+                transform: translate(0, 0) scale(0.9);
+            }
+
+            100% {
+                transform: translate(30px, -20px) scale(1.1);
+            }
         }
 
         @keyframes gradientShift {
@@ -2074,10 +2068,27 @@
         @media (max-width: 768px) {
             .slide {
                 padding: 30px 15px 100px;
+                height: 100vh;
+                height: 100dvh;
             }
 
             .reasons-grid {
                 grid-template-columns: 1fr;
+                max-height: calc(100vh - 240px);
+                max-height: calc(100dvh - 240px);
+                overflow-y: auto;
+                padding: 10px 5px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(232, 69, 107, 0.3) transparent;
+            }
+
+            .reasons-grid::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .reasons-grid::-webkit-scrollbar-thumb {
+                background: rgba(232, 69, 107, 0.35);
+                border-radius: 10px;
             }
 
             .letter-card {
@@ -2087,6 +2098,7 @@
 
             .letter-scroll-container {
                 max-height: calc(100vh - 230px);
+                max-height: calc(100dvh - 230px);
             }
 
             .countdown-unit {
@@ -2109,6 +2121,21 @@
             .promises-container {
                 grid-template-columns: 1fr;
                 gap: 8px;
+                max-height: calc(100vh - 260px);
+                max-height: calc(100dvh - 260px);
+                overflow-y: auto;
+                padding: 10px 5px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(212, 168, 83, 0.3) transparent;
+            }
+
+            .promises-container::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .promises-container::-webkit-scrollbar-thumb {
+                background: rgba(212, 168, 83, 0.35);
+                border-radius: 10px;
             }
 
             .promise-content h3 {
@@ -2124,19 +2151,32 @@
                 font-size: 22px;
             }
 
-            .side-dots {
-                right: 8px;
-            }
+
 
             .bottom-nav {
                 padding: 8px 18px;
                 gap: 14px;
             }
 
+            /* Move music player to top-right on mobile to prevent overlap with bottom navigation dots/buttons */
             .music-player {
-                bottom: 15px;
+                top: 15px;
                 right: 15px;
-                padding: 8px 14px;
+                bottom: auto;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .music-label {
+                display: none !important;
+            }
+
+            .music-status-dot {
+                display: none !important;
             }
 
             /* Timeline responsive adjustments */
@@ -2264,6 +2304,31 @@
             .carousel-container {
                 height: calc(100vh - 200px);
                 max-height: 420px;
+            }
+
+            /* Finale slide mobile sizing scale overrides */
+            .finale-heart-container {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 15px;
+            }
+
+            .finale-heart {
+                font-size: 55px;
+            }
+
+            .finale-text {
+                font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            }
+
+            .finale-line.line-5 {
+                font-size: clamp(1.2rem, 3.5vw, 1.8rem) !important;
+                margin-top: 10px !important;
+            }
+
+            .finale-sub {
+                font-size: clamp(1.0rem, 3vw, 1.4rem);
+                margin-top: 15px;
             }
         }
 
@@ -2489,8 +2554,7 @@
     <div class="ambient-orb" id="orb-2"></div>
     <div class="ambient-orb" id="orb-3"></div>
 
-    <!-- SIDE DOTS -->
-    <div class="side-dots" id="side-dots"></div>
+
 
     <!-- BOTTOM NAV -->
     <div class="bottom-nav" id="bottom-nav">
@@ -2907,7 +2971,7 @@
     <!-- 10. FINALE -->
     <div class="slide" id="slide-8" onclick="revealFinaleMessage()">
         <div id="finale-particles-container"></div>
-        
+
         <!-- Ambient fairy lights for slide-8 -->
         <div class="fairy-lights">
             <div class="light-orb orb-a"></div>
@@ -2921,9 +2985,9 @@
             <div class="heart-ring ring-3"></div>
             <div class="finale-heart">💖</div>
         </div>
-        
+
         <div class="finale-prompt" id="finale-tap-prompt">Tap to read my final promise... ✨</div>
-        
+
         <div class="finale-text">
             <span class="finale-line line-1">From our very first hello</span>
             <span class="finale-line line-2">to the seven steps of our forever,</span>
@@ -2949,46 +3013,46 @@
             if (finaleInterval) return;
             const container = document.getElementById('finale-particles-container');
             if (!container) return;
-            
+
             const shapes = ['🌸', '💖', '✨', '🌹', '💝', '💫'];
-            
+
             // Spawn a burst immediately
             for (let i = 0; i < 20; i++) {
                 spawnParticle(container, shapes, true);
             }
-            
+
             // Periodically spawn new ones
             finaleInterval = setInterval(() => {
                 spawnParticle(container, shapes, false);
             }, 300);
         }
-        
+
         function spawnParticle(container, shapes, randomStartHeight) {
             const p = document.createElement('div');
             p.className = 'finale-particle';
             p.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-            
+
             const size = Math.random() * 20 + 15;
             p.style.fontSize = size + 'px';
             p.style.left = Math.random() * 100 + '%';
-            
+
             if (randomStartHeight) {
                 p.style.top = Math.random() * 100 + '%';
             } else {
                 p.style.top = '-5%';
             }
-            
+
             const duration = Math.random() * 6 + 6;
             p.style.animationDuration = duration + 's';
-            
+
             const swayDistance = (Math.random() - 0.5) * 200;
             p.style.setProperty('--sway-x', swayDistance + 'px');
-            
+
             const rotateDeg = Math.random() * 360;
             p.style.setProperty('--rotate-deg', rotateDeg + 'deg');
-            
+
             container.appendChild(p);
-            
+
             setTimeout(() => {
                 p.remove();
             }, duration * 1000);
@@ -3027,23 +3091,11 @@
         }
 
         const bottomNav = document.getElementById('bottom-nav');
-        const sideDots = document.getElementById('side-dots');
         const btnPrev = document.getElementById('btn-prev');
         const btnNext = document.getElementById('btn-next');
         const pageNum = document.getElementById('page-num');
         const musicPlayer = document.getElementById('music-player');
         const introScreen = document.getElementById('intro-screen');
-
-        // Build side dots
-        for (let i = 0; i < TOTAL; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'side-dot';
-            dot.addEventListener('click', function (e) {
-                e.stopPropagation();
-                go(i);
-            });
-            sideDots.appendChild(dot);
-        }
 
         // Show first slide (hidden behind intro)
         allSlides[0].classList.add('active');
@@ -3084,10 +3136,6 @@
             pageNum.textContent = (current + 1) + ' / ' + TOTAL;
             btnPrev.classList.toggle('off', current === 0);
             btnNext.classList.toggle('off', current === TOTAL - 1);
-            var dots = sideDots.querySelectorAll('.side-dot');
-            for (var i = 0; i < dots.length; i++) {
-                dots[i].classList.toggle('active', i === current);
-            }
 
             // Trigger premium animations specifically for slide-8 (index 8)
             if (current === TOTAL - 1) {
@@ -3165,7 +3213,6 @@
                     introScreen.classList.add('hidden');
                     started = true;
                     bottomNav.classList.add('show');
-                    sideDots.classList.add('show');
                     musicPlayer.classList.add('show');
                     startFloatingHearts();
                     playMusic();
